@@ -6,8 +6,8 @@ class Bloc extends Object with Validator implements BaseBloc {
   final _emailController = StreamController<String>.broadcast();
   final _passwordController = StreamController<String>.broadcast();
 
-  Function(String) get emailChanged => _emailController.sink.add;
-  Function(String) get passwordChanged => _passwordController.sink.add;
+  StreamSink<String> get emailChanged => _emailController.sink;
+  StreamSink<String> get passwordChanged => _passwordController.sink;
 
   Stream<String> get email => _emailController.stream.transform(emailValidator);
   Stream<String> get password =>

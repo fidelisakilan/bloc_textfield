@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
               StreamBuilder<String>(
                 stream: bloc.email,
                 builder: (context, snapshot) => TextField(
-                  onChanged: bloc.emailChanged,
+                  onChanged: (s) => bloc.emailChanged.add(s),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Enter Email',
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
               StreamBuilder<String>(
                 stream: bloc.password,
                 builder: (context, snapshot) => TextField(
-                  onChanged: bloc.passwordChanged,
+                  onChanged: (s) => bloc.passwordChanged.add(s),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Enter Password',
